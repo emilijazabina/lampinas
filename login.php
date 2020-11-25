@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #C0F2F5">
-    <a class="navbar-brand" href="home.html"><img src="img/akva_logo.png" alt=""></a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,8 +39,9 @@
     </div>
 </nav>
 <div class="container">
-    <h1 class="h1">Akvakultūra</h1>
+    <h1 class="h1" style="color: white">Lampiņas</h1>
 </div>
+
 
 <div class="container">
     <form action="login" method="post">

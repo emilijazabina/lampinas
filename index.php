@@ -47,6 +47,6 @@
 
 
 </header>
-<div  style="background-color: #52FFEE ">welcom to my page!</div>
+<div>Sveicināti Lampiņu veikalā!</div>
 </body>
 </html>

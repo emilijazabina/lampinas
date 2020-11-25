@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Akvakultūra</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="css/stylesheet.css" >
+    <title>Lampiņas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylesheet.css" >
 
 </head>
 <body>
@@ -36,7 +37,7 @@
     </div>
 </nav>
 <div class="container">
-    <h1 class="h1" style="color: white">Akvakultūra</h1>
+    <h1 class="h1" style="color: white">Lampiņas</h1>
 </div>
 <?php
 $name = $email = $surname = $tel = "";
@@ -64,6 +65,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = test_input($_POST["name"]);
         if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
             $nameErr = "Only letters and white space allowed";
+        }
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["surname"])) {
+        $surnameErr = "Name is required";
+    } else {
+        $surname = test_input($_POST["surname"]);
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $surname)) {
+            $surnameErr = "Only letters and white space allowed";
+        }
+    }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["tel"])) {
+        $telErr = "Phone number is required";
+    } else {
+        $tel = test_input($_POST["tel"]);
+        if (!preg_match('/^([0-9]*)$/', $tel)) {
+            $telErr = "Only numbers allowed";
         }
     }
 }
@@ -97,13 +118,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Atzīmējiet vēlamo saziņas veidu ar jums!
         </h5>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="contact_me">
+            <input class="form-check-input" type="checkbox" value="epasts" id="defaultCheck1" name="contact_me">
             <label class="form-check-label" for="defaultCheck1">
                 E-pasts
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" name="contact_me">
+            <input class="form-check-input" type="checkbox" value="telefons" id="contact_me" name="contact_me">
             <label class="form-check-label" for="defaultCheck2">
                 Tālrunis
             </label>
@@ -115,7 +136,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <?php
 if(isset($_POST['submit'])){
-    echo "poga nospiesta";
+    echo " <b>Vārds:</b> {$_POST['name']} </br>";
+    echo " <b>Uzvārds:</b> {$_POST['surname']} </br>";
+    echo " <b>E-pasts:</b> {$_POST['email']} </br>";
+    echo " <b>Telefons:</b> {$_POST['tel']} </br>";
+    //echo " <b>Saziņas veids:</b> {$_POST['contact_me']}";
 }
 ?>
 
