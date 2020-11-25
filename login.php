@@ -56,10 +56,28 @@
     </form>
 </div>
 <?php
+
+if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+} else {
+    $email = test_input($_POST["email"]);
+}
+if (empty($_POST["parole"])) {
+    $comment = "";
+} else {
+    $comment = test_input($_POST["parole"]);
+}
 if(isset($_POST['submit'])){
     echo " <b>E-pasts:</b> {$_POST['email']}</br>";
     echo " <b>Parole:</b> {$_POST['parole']}";
 }
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 ?>
 
 </body>

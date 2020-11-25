@@ -122,3 +122,7 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+.error{
+    color: red;
+}
